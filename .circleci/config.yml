@@ -44,4 +44,5 @@ jobs:
       # run tests!
       - run: cp .env.ci .env
       - run: php artisan migrate
+      - run: php artisan db:seed
       - run: vendor/bin/phpunit
