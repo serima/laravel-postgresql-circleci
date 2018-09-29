@@ -22,7 +22,11 @@ jobs:
 
     steps:
       - checkout
-
+      - run:
+          name: Install and enable pdo_pgsql php extension
+          command: |
+            sudo apt-get update && sudo apt-get install libpq-dev
+            sudo docker-php-ext-install pdo_pgsql && sudo docker-php-ext-enable pdo_pgsql
       # Download and cache dependencies
       - restore_cache:
           keys:
